@@ -1,0 +1,4 @@
+.venv
+**/.idea
+**/*.mov
+**/__pycache__/
