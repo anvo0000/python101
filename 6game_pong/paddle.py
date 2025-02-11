@@ -1,13 +1,16 @@
 from turtle import Turtle
 
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
 PADDLE_SHAPE = "square"
-PADDLE_COLOR = "red"
+PADDLE_COLOR = "white"
 PADDLE_LEFT_X = -350
 PADDLE_RIGHT_X = 350
 PADDLE_Y = 0
 STRETCH_WID = 5
 STRETCH_LEN = 1
-PADDLE_MOVE = 20
+PADDLE_MOVE = 40
 
 class Paddle(Turtle):
     def __init__(self, direction="right"):
@@ -25,17 +28,20 @@ class Paddle(Turtle):
         self.paddle.shapesize(stretch_wid=STRETCH_WID, stretch_len=STRETCH_LEN)
 
     def go_up(self):
-        print("Moving up")
         new_y = self.paddle.ycor() + PADDLE_MOVE
+        if new_y > SCREEN_HEIGHT/2:
+            new_y = SCREEN_HEIGHT/2
+
+        print(f"Moving up new_y: {new_y}")
         self.paddle.goto(self.paddle.xcor(), new_y)
 
     def go_down(self):
-        print("Moving down")
         new_y = self.paddle.ycor() - PADDLE_MOVE
+        if new_y < (SCREEN_HEIGHT/2 * -1):
+            new_y = SCREEN_HEIGHT/2 * -1
+
         self.paddle.goto(self.paddle.xcor(), new_y)
+        print(f"Moving down new_y: {new_y}")
 
 
-# r_paddle = Paddle()
-# while True:
-#     r_paddle.go_up()
-#
+
