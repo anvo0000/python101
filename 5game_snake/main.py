@@ -27,7 +27,7 @@ screen.listen()
 
 count = 0
 while game_is_on:
-    time.sleep(0.3);
+    time.sleep(0.3)
     screen.update()  # wait 0.1 second and then update the screen
     count += 1
     snake.move()
@@ -48,15 +48,19 @@ while game_is_on:
     #ignore the snake's head by slicing snake.segments[1:]
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            scoreboard.game_over()
-            game_is_on = False
+            # scoreboard.game_over()
+            # game_is_on = False
+            scoreboard.reset()
+            snake.reset()
 
     # Detect collision with the wall
     # if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
     # abs(snake.head.xcor()) > 280 checks if xcor is greater than 280 or less than -280 in one step.
     if abs(snake.head.xcor()) > 280 or abs(snake.head.ycor()) > 280:
-        scoreboard.game_over()
-        game_is_on = False
+        # scoreboard.game_over()
+        # game_is_on = False
+        scoreboard.reset()
+        snake.reset()
 
     if count == 500:
         break

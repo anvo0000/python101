@@ -43,6 +43,14 @@ class Snake():
 
         self.head.forward(MOVE_DISTANCE)
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def up(self):
         """Snake go to North
         Accept to go Up, if it is on LEFT OR RIGHT
