@@ -4,6 +4,13 @@ from turtle import Turtle, Screen
 import pandas as pd
 df = pd.read_csv(filepath_or_buffer="50_states.csv")
 
+FONT = ("Courier", 24, "normal")
+def game_over(self):
+    self.goto(0,0)
+    self.write(f"CONGRATULATION! You did it!",
+               align="center",
+               font=FONT)
+
 image = "blank_states_img.gif"
 screen = Screen()
 turtle = Turtle()
@@ -41,11 +48,21 @@ while game_is_on:
         screen.update()
 
     if correct_score == 50:
+        game_over()
         game_is_on = False
+
     if user_answer == "Exit":
         game_is_on = False
         # write the remaining states to states_to_learn.csv
-        states_to_learn = list(set(all_states) - set(user_states))
+
+        # # Option 1: [Using Set()] in
+        # states_to_learn = list(set(all_states) - set(user_states))
+
+        # Option 2: Using List Comprehension
+        states_to_learn = [state for state in all_states if state not in user_states]
+
         df = pd.DataFrame(data=states_to_learn, columns=["states to learn"])
         df.to_csv("states_to_learn.csv")
-# screen.mainloop()
+screen.mainloop()
+
+

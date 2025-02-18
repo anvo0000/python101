@@ -6,3 +6,6 @@
 5. Record the correct guesses in a list
 6. Keep track of the score
 7. Write the state to learn to csv when user enter "Exit"
+```
+states_to_learn = [state for state in all_states if state not in user_states]
+```
