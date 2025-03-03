@@ -1,0 +1,1 @@
+except FileNotFoundError: [Errno 2] No such file or directory: 'a_file.txt'

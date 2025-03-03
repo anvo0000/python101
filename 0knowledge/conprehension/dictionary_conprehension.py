@@ -1,5 +1,5 @@
 # ## syntax
-# # new_dict = {new_key: new_value for (key, value) in dict.items() if test}
+# # new_dict = {new_key: new_value for (key, value) in nato_dict.items() if test}
 # import random
 #
 # names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]

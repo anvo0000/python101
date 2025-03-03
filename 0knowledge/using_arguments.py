@@ -10,7 +10,7 @@ def add(*args):
 # kwargs/kw = keyword arguments
 def calculator(n, **kwargs):
     # print(kwargs) # {'add': 3, 'multiply': 5}
-    # print(type(kwargs)) # <class 'dict'>
+    # print(type(kwargs)) # <class 'nato_dict'>
     # for key, value in kwargs.items():
     #     print(key)
     #     print(value)
