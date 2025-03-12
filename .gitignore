@@ -1,4 +1,5 @@
 .venv
+.env
 **/.idea
 **/*.mov
 **/__pycache__/
