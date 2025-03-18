@@ -16,30 +16,41 @@
 # https://opentdb.com/api_config.php
 
 import requests
+URL = "https://opentdb.com/api.php"
+parameters = {
+    "amount": 10,
+    "type": "boolean",
+    "category":18
+}
+response = requests.get(url=URL, params=parameters)
+response.raise_for_status()
+data = response.json()
+question_data = data["results"]
+print(question_data)
 
-class Data:
-    def __init__(self,url):
-        self.url = url or ""
-        self.question_data = []
-
-
-    def crawl_opentdb(self):
-        try:
-            response = requests.get(url=self.url)
-            response.raise_for_status()
-
-            data = response.json()
-            if data["response_code"] == 0:
-                # print(type(data["results"])) --> <class 'list'>
-                list_data = data["results"]
-                for item in list_data:
-                    item_line = {}
-                    item_line["text"] = item["question"]
-                    item_line["answer"] = item["correct_answer"]
-                    self.question_data.append(item_line)
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching data: {e}")
-        return self.question_data
+# class Data:
+#     def __init__(self,url):
+#         self.url = url or ""
+#         self.question_data = []
+#
+#
+#     def crawl_opentdb(self):
+#         try:
+#             response = requests.get(url=self.url)
+#             response.raise_for_status()
+#
+#             data = response.json()
+#             if data["response_code"] == 0:
+#                 # print(type(data["results"])) --> <class 'list'>
+#                 list_data = data["results"]
+#                 for item in list_data:
+#                     item_line = {}
+#                     item_line["text"] = item["question"]
+#                     item_line["answer"] = item["correct_answer"]
+#                     self.question_data.append(item_line)
+#         except requests.exceptions.RequestException as e:
+#             print(f"Error fetching data: {e}")
+#         return self.question_data
 
 
 # _data = Data(url = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=boolean")
