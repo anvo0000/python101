@@ -70,7 +70,7 @@ canvas_background_img = canvas.create_image(400, 263, image=front_img) #the app 
 
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
 title_text = canvas.create_text(400,150,text="Title", font=("Ariel",40, "italic"))
-word_text = canvas.create_text(400,263,text="French word", font=("Ariel",60, "bold"))
+word_text = canvas.create_text(400,263,text="French word", font=("Arial",60, "bold"))
 canvas.grid(row=0, column=0, columnspan=2)
 
 #wrong img - wrong_button
